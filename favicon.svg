@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Liel Almog monogram">
+  <rect width="64" height="64" rx="14" fill="#09111f"/>
+  <path d="M14 13v38h23v-8H23V13h-9Z" fill="#f3f6fb"/>
+  <path d="m40 13-13 38h9l2.3-7h10.4l2.3 7h9L47 13h-7Zm.8 23 2.7-9 2.7 9h-5.4Z" fill="#68a7ff"/>
+</svg>
