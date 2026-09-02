@@ -4,7 +4,7 @@
 
 I build reliable software across the stack, with a focus on backend architecture, distributed systems, cloud platforms, and developer-friendly infrastructure. Since 2021, I have worked on production systems spanning resource allocation, platform engineering, microservices, and responsive web applications.
 
-[View my portfolio](https://liel-almog.github.io/) · [Explore my GitHub](https://github.com/liel-almog)
+[View my portfolio](https://liel-almog.github.io/) · [Connect on LinkedIn](https://www.linkedin.com/in/liel-almog-454158335/) · [Explore my GitHub](https://github.com/liel-almog)
 
 ## What I work on
 
@@ -61,4 +61,4 @@ An interactive Go and TypeScript application that solves configurable sliding pu
 
 ## Connect
 
-I am based in Israel. The best way to explore my work or get in touch is through [GitHub](https://github.com/liel-almog).
+I am based in Israel. Connect with me on [LinkedIn](https://www.linkedin.com/in/liel-almog-454158335/) or explore my work on [GitHub](https://github.com/liel-almog).
