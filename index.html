@@ -4,26 +4,28 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>Liel Almog | Senior Software Engineer</title>
+        <title>Liel Almog | Senior Software Engineer &amp; Backend Developer</title>
         <meta
             name="description"
-            content="Liel Almog is a senior software engineer in Israel specializing in backend architecture, distributed systems, cloud platforms, and full-stack development."
+            content="Liel Almog is a senior software engineer and backend developer in Israel, building reliable APIs, distributed systems, cloud platforms, and complete production software."
         />
         <meta name="author" content="Liel Almog" />
         <meta name="robots" content="index, follow" />
-        <meta name="theme-color" content="#09111f" />
+        <meta name="theme-color" content="#07111f" />
 
         <link rel="canonical" href="https://liel-almog.github.io/" />
         <link rel="me" href="https://github.com/liel-almog" />
         <link rel="me" href="https://www.linkedin.com/in/liel-almog-454158335/" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="stylesheet" href="styles.css" />
+        <script src="script.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
         <meta property="og:type" content="profile" />
-        <meta property="og:title" content="Liel Almog | Senior Software Engineer" />
+        <meta property="og:title" content="Liel Almog | Senior Software Engineer &amp; Backend Developer" />
         <meta
             property="og:description"
-            content="Backend, platform, and cloud engineering focused on reliable, maintainable systems."
+            content="Backend systems, cloud platforms, and production software owned from architecture through operation."
         />
         <meta property="og:url" content="https://liel-almog.github.io/" />
         <meta property="og:site_name" content="Liel Almog" />
@@ -31,10 +33,10 @@
         <meta property="profile:last_name" content="Almog" />
 
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Liel Almog | Senior Software Engineer" />
+        <meta name="twitter:title" content="Liel Almog | Senior Software Engineer &amp; Backend Developer" />
         <meta
             name="twitter:description"
-            content="Backend, platform, and cloud engineering focused on reliable, maintainable systems."
+            content="Backend systems, cloud platforms, and production software owned from architecture through operation."
         />
 
         <script type="application/ld+json">
@@ -44,21 +46,20 @@
                 "name": "Liel Almog",
                 "url": "https://liel-almog.github.io/",
                 "sameAs": ["https://github.com/liel-almog", "https://www.linkedin.com/in/liel-almog-454158335/"],
-                "jobTitle": "Senior Software Engineer",
-                "homeLocation": {
-                    "@type": "Country",
-                    "name": "Israel"
-                },
+                "jobTitle": ["Senior Software Engineer", "Backend Developer"],
+                "homeLocation": { "@type": "Country", "name": "Israel" },
                 "knowsAbout": [
                     "Backend development",
+                    "API design",
                     "Distributed systems",
+                    "Microsoft Azure",
                     "Platform engineering",
-                    "Cloud computing",
+                    "Go",
                     "Python",
                     "TypeScript",
-                    "Go",
                     "Kubernetes",
-                    "OpenShift"
+                    "OpenShift",
+                    "eBPF"
                 ]
             }
         </script>
@@ -72,13 +73,33 @@
                     <span class="brand-mark" aria-hidden="true">LA</span>
                     <span>Liel Almog</span>
                 </a>
-
                 <nav aria-label="Primary navigation">
                     <a href="#experience">Experience</a>
                     <a href="#expertise">Expertise</a>
                     <a href="#projects">Projects</a>
-                    <a href="https://github.com/liel-almog">GitHub</a>
-                    <a class="nav-cta" href="https://www.linkedin.com/in/liel-almog-454158335/"> LinkedIn </a>
+                    <a href="#contact">Contact</a>
+                    <div class="social-links" role="group" aria-label="Social profiles">
+                        <a class="social-link" href="https://github.com/liel-almog" aria-label="GitHub profile">
+                            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2.24c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.72 1.27 3.38.97.1-.75.4-1.27.74-1.56-2.57-.29-5.27-1.29-5.27-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.16 1.18A11 11 0 0 1 12 6.13c.98 0 1.95.13 2.87.39 2.2-1.49 3.16-1.18 3.16-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.82 1.19 3.08 0 4.4-2.71 5.38-5.29 5.67.42.36.79 1.06.79 2.14v3.28c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"
+                                />
+                            </svg>
+                            <span class="social-label">GitHub</span>
+                        </a>
+                        <a
+                            class="social-link"
+                            href="https://www.linkedin.com/in/liel-almog-454158335/"
+                            aria-label="LinkedIn profile"
+                        >
+                            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.41a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13Zm1.78 13.04H3.54V8.98H7.1v11.47Z"
+                                />
+                            </svg>
+                            <span class="social-label">LinkedIn</span>
+                        </a>
+                    </div>
                 </nav>
             </div>
         </header>
@@ -87,66 +108,75 @@
             <section class="hero" id="top">
                 <div class="container hero-grid">
                     <div class="hero-copy">
-                        <p class="eyebrow">Senior Software Engineer · Israel</p>
-                        <h1>
-                            I'm Liel Almog. <br />
-                            I build dependable systems from
-                            <span>API to infrastructure.</span>
-                        </h1>
+                        <p class="eyebrow">Senior Software Engineer · Backend Developer</p>
+                        <h1>I build reliable software and <span>own it end to end.</span></h1>
                         <p class="hero-lead">
-                            I specialize in backend architecture, distributed systems, and cloud platforms-turning
-                            complex engineering problems into reliable products that teams can understand and operate.
+                            I design backend systems, APIs, and cloud platforms, then carry them through implementation,
+                            delivery, and operation. My work spans distributed architecture, Microsoft Azure, Go,
+                            Python, TypeScript, and the interfaces that make complex systems useful.
                         </p>
                         <div class="hero-actions">
-                            <a class="button button-primary" href="#projects">Explore my work</a>
-                            <a class="button button-secondary" href="https://www.linkedin.com/in/liel-almog-454158335/">
-                                Connect on LinkedIn
-                                <span aria-hidden="true">↗</span>
+                            <a class="button button-primary" href="#experience">View my experience</a>
+                            <a class="button button-secondary" href="#projects">
+                                Explore the systems <span aria-hidden="true">↓</span>
                             </a>
                         </div>
+                        <ul class="capability-line" aria-label="Core capabilities">
+                            <li>Backend systems</li>
+                            <li>Cloud platforms</li>
+                            <li>Distributed architecture</li>
+                            <li>Complete delivery</li>
+                        </ul>
                     </div>
 
-                    <aside class="principles-card" aria-label="Engineering principles">
-                        <p class="card-kicker">What I optimize for</p>
-                        <ul>
+                    <aside class="ownership-card" aria-labelledby="ownership-card-title">
+                        <div class="ownership-card-heading">
+                            <p class="card-kicker">How I work</p>
+                            <span class="status-dot">Production minded</span>
+                        </div>
+                        <h2 id="ownership-card-title">From the first constraint to the running system.</h2>
+                        <ol class="ownership-path">
                             <li>
-                                <span class="principle-number">01</span>
-                                <span>
-                                    <strong>Reliable by design</strong>
-                                    <small>Concurrency, failure modes, and operations considered early.</small>
-                                </span>
+                                <span>01</span><strong>Understand</strong
+                                ><small>Product need and system constraints</small>
                             </li>
                             <li>
-                                <span class="principle-number">02</span>
-                                <span>
-                                    <strong>Simple to maintain</strong>
-                                    <small
-                                        >Clear boundaries and practical architecture over accidental complexity.</small
-                                    >
-                                </span>
+                                <span>02</span><strong>Design</strong><small>Boundaries, data, and failure modes</small>
                             </li>
                             <li>
-                                <span class="principle-number">03</span>
-                                <span>
-                                    <strong>Useful end to end</strong>
-                                    <small>Infrastructure, APIs, and interfaces working as one product.</small>
-                                </span>
+                                <span>03</span><strong>Build</strong
+                                ><small>Services, interfaces, and integrations</small>
                             </li>
-                        </ul>
+                            <li><span>04</span><strong>Ship</strong><small>Cloud, containers, and delivery</small></li>
+                            <li>
+                                <span>05</span><strong>Operate</strong
+                                ><small>Reliability, feedback, and iteration</small>
+                            </li>
+                        </ol>
                     </aside>
                 </div>
             </section>
 
-            <section class="section intro-section" aria-labelledby="about-title">
-                <div class="container intro-grid">
-                    <p class="section-label">About</p>
+            <section class="signal-strip" aria-label="Engineering focus">
+                <div class="container signal-grid">
                     <div>
-                        <h2 id="about-title">Engineering systems that stay clear under pressure.</h2>
+                        <span class="signal-mark" aria-hidden="true">{ }</span>
                         <p>
-                            Since 2021, I have worked across the full software lifecycle: designing backend services,
-                            shaping cloud platforms, building event-driven systems, and delivering responsive web
-                            applications. I enjoy the point where product needs meet architecture, reliability, and
-                            developer experience.
+                            <strong>Backend depth</strong
+                            ><small>APIs, concurrency, data, and distributed workflows</small>
+                        </p>
+                    </div>
+                    <div>
+                        <span class="signal-mark azure-mark" aria-hidden="true">AZ</span>
+                        <p>
+                            <strong>Cloud delivery</strong
+                            ><small>Azure services, platforms, containers, and CI/CD</small>
+                        </p>
+                    </div>
+                    <div>
+                        <span class="signal-mark ownership-mark" aria-hidden="true">360°</span>
+                        <p>
+                            <strong>Full ownership</strong><small>Architecture through operation and improvement</small>
                         </p>
                     </div>
                 </div>
@@ -156,44 +186,54 @@
                 <div class="container">
                     <div class="section-heading">
                         <div>
-                            <p class="section-label">Selected experience</p>
-                            <h2 id="experience-title">Building production software across the stack.</h2>
+                            <p class="section-label">Professional experience</p>
+                            <h2 id="experience-title">Growing scope. Deeper systems. Complete responsibility.</h2>
                         </div>
-                        <p>Backend depth, platform thinking, and enough frontend context to ship complete systems.</p>
+                        <p>
+                            Since 2021, I have worked across backend, cloud, platform, and frontend boundaries to ship
+                            production software that teams can maintain and operate.
+                        </p>
                     </div>
 
                     <div class="timeline">
                         <article class="timeline-item">
                             <div class="timeline-meta">
-                                <p>July 2025 - Present</p>
+                                <p>July 2025 — Present</p>
                                 <span>Current role</span>
                             </div>
                             <div class="timeline-content">
-                                <h3>Senior Software Engineer</h3>
+                                <div class="role-heading">
+                                    <h3>Senior Software Engineer</h3>
+                                    <p>Architecture · Reliability · Delivery</p>
+                                </div>
                                 <p>
-                                    Designed and maintained a resource allocation and hierarchy system, using
-                                    distributed locking to keep concurrent operations safe and consistent.
+                                    Design and maintain a resource allocation and hierarchy system, taking ownership of
+                                    backend behavior, data consistency, and the product interface. Distributed locking
+                                    keeps concurrent operations safe while Celery supports asynchronous workloads.
                                 </p>
-                                <ul class="tag-list" aria-label="Technologies used">
+                                <ul class="tag-list" aria-label="Technologies and capabilities used">
                                     <li>Flask</li>
                                     <li>Microsoft SQL Server</li>
                                     <li>Celery</li>
                                     <li>Angular</li>
+                                    <li>Distributed locking</li>
                                 </ul>
                             </div>
                         </article>
 
                         <article class="timeline-item">
-                            <div class="timeline-meta">
-                                <p>July 2024 - June 2025</p>
-                            </div>
+                            <div class="timeline-meta"><p>July 2024 — June 2025</p></div>
                             <div class="timeline-content">
-                                <h3>Full-Stack Platform Engineer</h3>
+                                <div class="role-heading">
+                                    <h3>Full-Stack Platform Engineer</h3>
+                                    <p>Platform APIs · Developer experience</p>
+                                </div>
                                 <p>
-                                    Built an abstraction layer over OpenShift to simplify provisioning, configuration,
-                                    and deployment workflows, with contributions to a distributed event system.
+                                    Built an abstraction layer over OpenShift that simplified provisioning,
+                                    configuration, and deployment workflows. Worked across API design, persistent data,
+                                    the web experience, and a distributed event system.
                                 </p>
-                                <ul class="tag-list" aria-label="Technologies used">
+                                <ul class="tag-list" aria-label="Technologies and capabilities used">
                                     <li>FastAPI</li>
                                     <li>PostgreSQL</li>
                                     <li>MongoDB</li>
@@ -203,18 +243,26 @@
                             </div>
                         </article>
 
-                        <article class="timeline-item">
+                        <article class="timeline-item timeline-item-azure">
                             <div class="timeline-meta">
-                                <p>November 2021 - June 2024</p>
+                                <p>November 2021 — June 2024</p>
+                                <span>Azure experience</span>
                             </div>
                             <div class="timeline-content">
-                                <h3>Full-Stack &amp; Cloud Developer</h3>
+                                <div class="role-heading">
+                                    <h3>Full-Stack &amp; Cloud Developer</h3>
+                                    <p>Microsoft Azure · Microservices</p>
+                                </div>
                                 <p>
-                                    Developed full-stack applications on Microsoft Azure using TypeScript and MongoDB in
-                                    a microservice architecture, while delivering responsive interfaces across multiple
-                                    product domains.
+                                    Developed production applications on Microsoft Azure in a microservice architecture.
+                                    Delivered backend services, asynchronous integrations, data flows, and responsive
+                                    interfaces across multiple product domains.
                                 </p>
-                                <ul class="tag-list" aria-label="Technologies used">
+                                <div class="azure-services" aria-label="Microsoft Azure services used">
+                                    <span>Azure Functions</span><span>Service Bus</span><span>Web Apps</span
+                                    ><span>Storage</span>
+                                </div>
+                                <ul class="tag-list" aria-label="Technologies and capabilities used">
                                     <li>TypeScript</li>
                                     <li>MongoDB</li>
                                     <li>Microsoft Azure</li>
@@ -231,117 +279,374 @@
                     <div class="section-heading">
                         <div>
                             <p class="section-label">Technical expertise</p>
-                            <h2 id="expertise-title">A broad toolkit, applied with focus.</h2>
+                            <h2 id="expertise-title">Backend first, with the range to ship the whole system.</h2>
                         </div>
-                        <p>I choose technology around the system's constraints-not the other way around.</p>
+                        <p>
+                            I choose tools around the system’s constraints and stay involved across the boundaries that
+                            determine whether the product works in production.
+                        </p>
                     </div>
 
-                    <div class="skills-grid">
-                        <article class="skill-card">
-                            <span class="skill-index">01</span>
-                            <h3>Languages &amp; backend</h3>
-                            <p>Go, Python, TypeScript, Node.js, C, NestJS, Express.js, FastAPI, Flask, Celery</p>
+                    <div class="expertise-grid">
+                        <article class="expertise-card expertise-card-featured">
+                            <span class="skill-index">01 / Core</span>
+                            <h3>Backend development</h3>
+                            <p>Services and APIs with clear boundaries, reliable data flows, and maintainable code.</p>
+                            <ul class="stack-list">
+                                <li>Go</li>
+                                <li>Python</li>
+                                <li>TypeScript</li>
+                                <li>Node.js</li>
+                                <li>FastAPI</li>
+                                <li>Flask</li>
+                                <li>NestJS</li>
+                            </ul>
                         </article>
-                        <article class="skill-card">
+                        <article class="expertise-card">
                             <span class="skill-index">02</span>
-                            <h3>Distributed systems</h3>
-                            <p>Kafka, WebSockets, microservices, distributed locking, event-driven architecture</p>
+                            <h3>Distributed systems &amp; data</h3>
+                            <p>Concurrency, event-driven workflows, messaging, caching, and durable persistence.</p>
+                            <ul class="stack-list">
+                                <li>Kafka</li>
+                                <li>Service Bus</li>
+                                <li>PostgreSQL</li>
+                                <li>MongoDB</li>
+                                <li>Redis</li>
+                                <li>SQL Server</li>
+                            </ul>
                         </article>
-                        <article class="skill-card">
-                            <span class="skill-index">03</span>
-                            <h3>Database</h3>
-                            <p>PostgreSQL, MongoDB, Redis, Microsoft SQL Server, SQL and NoSQL systems</p>
+                        <article class="expertise-card expertise-card-azure">
+                            <span class="skill-index">03 / Cloud</span>
+                            <h3>Cloud &amp; platforms</h3>
+                            <p>Applications and internal platforms delivered through managed cloud and containers.</p>
+                            <ul class="stack-list">
+                                <li>Microsoft Azure</li>
+                                <li>Docker</li>
+                                <li>Kubernetes</li>
+                                <li>OpenShift</li>
+                                <li>AWS</li>
+                                <li>CI/CD</li>
+                            </ul>
                         </article>
-                        <article class="skill-card">
+                        <article class="expertise-card">
                             <span class="skill-index">04</span>
-                            <h3>Cloud</h3>
-                            <p>Azure Functions, Service Bus, Web Apps and Storage; AWS EC2, Lambda, S3 and SQS</p>
-                        </article>
-                        <article class="skill-card">
-                            <span class="skill-index">05</span>
-                            <h3>Infrastructure</h3>
-                            <p>Docker, Kubernetes, OpenShift, CI/CD, Linux, and cloud-native operations</p>
-                        </article>
-                        <article class="skill-card">
-                            <span class="skill-index">06</span>
                             <h3>Security &amp; systems</h3>
+                            <p>Security-aware engineering from application boundaries down to Linux kernel tooling.</p>
+                            <ul class="stack-list">
+                                <li>eBPF</li>
+                                <li>OWASP</li>
+                                <li>Networking</li>
+                                <li>Encryption</li>
+                                <li>C</li>
+                                <li>Linux</li>
+                            </ul>
+                        </article>
+                        <article class="expertise-card">
+                            <span class="skill-index">05</span>
+                            <h3>Complete product delivery</h3>
                             <p>
-                                eBPF, OWASP, encryption, networking, firewalls, operating systems, Assembly and RCE
-                                analysis
+                                Enough frontend and product context to turn capable infrastructure into useful software.
                             </p>
+                            <ul class="stack-list">
+                                <li>React</li>
+                                <li>Angular</li>
+                                <li>WebSockets</li>
+                                <li>Responsive UI</li>
+                                <li>Developer experience</li>
+                            </ul>
                         </article>
                     </div>
                 </div>
             </section>
 
-            <section class="section" id="projects" aria-labelledby="projects-title">
+            <section class="section systems-section" id="projects" aria-labelledby="projects-title">
                 <div class="container">
                     <div class="section-heading">
                         <div>
-                            <p class="section-label">Featured work</p>
-                            <h2 id="projects-title">Projects that explore systems from different angles.</h2>
+                            <p class="section-label">Selected systems</p>
+                            <h2 id="projects-title">Explore how the pieces work together.</h2>
                         </div>
-                        <p>Cloud architecture, application security, and algorithms-all built as working software.</p>
+                        <p>
+                            Three projects across backend engineering, security, APIs, algorithms, and product delivery.
+                            Choose a system, then inspect each component.
+                        </p>
                     </div>
 
-                    <div class="projects-grid">
-                        <article class="project-card">
-                            <div class="project-topline">
-                                <span>Cloud platform</span>
-                                <span aria-hidden="true">↗</span>
+                    <div class="system-explorer">
+                        <div class="project-tabs" role="tablist" aria-label="Select a project">
+                            <button
+                                class="project-tab"
+                                id="tab-ebpf"
+                                type="button"
+                                role="tab"
+                                aria-selected="true"
+                                aria-controls="system-ebpf"
+                                tabindex="0"
+                            >
+                                <span>01</span>eBPF Shield
+                            </button>
+                            <button
+                                class="project-tab"
+                                id="tab-puzzle"
+                                type="button"
+                                role="tab"
+                                aria-selected="false"
+                                aria-controls="system-puzzle"
+                                tabindex="-1"
+                            >
+                                <span>02</span>Eight Puzzle Solver
+                            </button>
+                            <button
+                                class="project-tab"
+                                id="tab-vulnerability"
+                                type="button"
+                                role="tab"
+                                aria-selected="false"
+                                aria-controls="system-vulnerability"
+                                tabindex="-1"
+                            >
+                                <span>03</span>Vulnerability Detector
+                            </button>
+                        </div>
+
+                        <article
+                            class="system-panel"
+                            id="system-ebpf"
+                            role="tabpanel"
+                            aria-labelledby="tab-ebpf"
+                            tabindex="0"
+                        >
+                            <div class="system-intro">
+                                <div>
+                                    <p class="system-type">Cloud-native security system</p>
+                                    <h3>eBPF Shield</h3>
+                                </div>
+                                <p>
+                                    A per-process firewall spanning a browser control plane, backend services, a Go host
+                                    agent, and kernel-level eBPF enforcement.
+                                </p>
+                                <a href="https://github.com/ebpf-shield"
+                                    >View organization <span aria-hidden="true">↗</span></a
+                                >
                             </div>
-                            <h3><a href="https://github.com/liel-almog/SkyArchive">SkyArchive</a></h3>
-                            <p>
-                                A self-hosted cloud storage platform built with Go and React, using Kafka, PostgreSQL,
-                                Azure storage, and JWT authentication.
-                            </p>
-                            <ul class="project-tech" aria-label="SkyArchive technologies">
-                                <li>Go</li>
-                                <li>React</li>
-                                <li>Kafka</li>
-                            </ul>
+                            <div class="architecture-layout">
+                                <div class="architecture-flow" aria-label="eBPF Shield architecture">
+                                    <button
+                                        class="architecture-node"
+                                        type="button"
+                                        aria-pressed="true"
+                                        data-title="React control plane"
+                                        data-detail="A browser interface for organizations, protected hosts, processes, dashboards, and firewall rules."
+                                    >
+                                        <span>Product</span><strong>React control plane</strong
+                                        ><small>TypeScript · UI</small>
+                                    </button>
+                                    <span class="flow-arrow" aria-hidden="true">→</span>
+                                    <button
+                                        class="architecture-node"
+                                        type="button"
+                                        aria-pressed="false"
+                                        data-title="FastAPI backend"
+                                        data-detail="Separate human-facing and machine-facing APIs coordinate authentication, product workflows, and host synchronization."
+                                    >
+                                        <span>API</span><strong>FastAPI backend</strong><small>Python · JWT</small>
+                                    </button>
+                                    <span class="flow-arrow" aria-hidden="true">→</span>
+                                    <button
+                                        class="architecture-node"
+                                        type="button"
+                                        aria-pressed="false"
+                                        data-title="MongoDB state"
+                                        data-detail="Persistent models connect users and organizations with hosts, processes, and the policies enforced on them."
+                                    >
+                                        <span>Data</span><strong>MongoDB state</strong><small>Beanie · Models</small>
+                                    </button>
+                                    <span class="flow-arrow flow-arrow-turn" aria-hidden="true">↘</span>
+                                    <button
+                                        class="architecture-node"
+                                        type="button"
+                                        aria-pressed="false"
+                                        data-title="Go host agent"
+                                        data-detail="The host-side agent observes processes, synchronizes policy, and connects the control plane to kernel enforcement."
+                                    >
+                                        <span>Agent</span><strong>Go host agent</strong><small>Go · Linux</small>
+                                    </button>
+                                    <span class="flow-arrow" aria-hidden="true">→</span>
+                                    <button
+                                        class="architecture-node"
+                                        type="button"
+                                        aria-pressed="false"
+                                        data-title="eBPF enforcement"
+                                        data-detail="Kernel-level programs apply network policy close to the source for efficient, process-aware traffic control."
+                                    >
+                                        <span>Kernel</span><strong>eBPF enforcement</strong><small>C · Policies</small>
+                                    </button>
+                                </div>
+                                <aside class="architecture-detail" aria-live="polite">
+                                    <p>Selected component</p>
+                                    <h4>React control plane</h4>
+                                    <div>
+                                        A browser interface for organizations, protected hosts, processes, dashboards,
+                                        and firewall rules.
+                                    </div>
+                                </aside>
+                            </div>
                         </article>
 
-                        <article class="project-card">
-                            <div class="project-topline">
-                                <span>Application security</span>
-                                <span aria-hidden="true">↗</span>
+                        <article
+                            class="system-panel"
+                            id="system-puzzle"
+                            role="tabpanel"
+                            aria-labelledby="tab-puzzle"
+                            tabindex="0"
+                        >
+                            <div class="system-intro">
+                                <div>
+                                    <p class="system-type">Interactive algorithm application</p>
+                                    <h3>Eight Puzzle Solver</h3>
+                                </div>
+                                <p>
+                                    A complete Go and TypeScript application that lets users configure a puzzle, choose
+                                    an algorithm, and inspect the generated solution path.
+                                </p>
+                                <a href="https://github.com/liel-almog/go-eight-puzzle-solver"
+                                    >View repository <span aria-hidden="true">↗</span></a
+                                >
                             </div>
-                            <h3>
-                                <a href="https://github.com/liel-almog/package-vulnerability-detector">
-                                    Package Vulnerability Detector
-                                </a>
-                            </h3>
-                            <p>
-                                A NestJS API that analyzes package definition files and retrieves known vulnerabilities
-                                through GitHub's Security Advisories GraphQL API.
-                            </p>
-                            <ul class="project-tech" aria-label="Package Vulnerability Detector technologies">
-                                <li>TypeScript</li>
-                                <li>NestJS</li>
-                                <li>Docker</li>
-                            </ul>
+                            <div class="architecture-layout">
+                                <div
+                                    class="architecture-flow architecture-flow-short"
+                                    aria-label="Eight Puzzle Solver architecture"
+                                >
+                                    <button
+                                        class="architecture-node"
+                                        type="button"
+                                        aria-pressed="true"
+                                        data-title="Interactive web UI"
+                                        data-detail="Users choose a board size, arrange tiles, select a search strategy, and follow the result step by step."
+                                    >
+                                        <span>Input</span><strong>Interactive web UI</strong
+                                        ><small>React · TypeScript</small>
+                                    </button>
+                                    <span class="flow-arrow" aria-hidden="true">→</span>
+                                    <button
+                                        class="architecture-node"
+                                        type="button"
+                                        aria-pressed="false"
+                                        data-title="Go backend"
+                                        data-detail="The backend accepts configurable puzzle states and provides a clear boundary around the solving engine."
+                                    >
+                                        <span>Service</span><strong>Go backend</strong><small>Go · API</small>
+                                    </button>
+                                    <span class="flow-arrow" aria-hidden="true">→</span>
+                                    <button
+                                        class="architecture-node"
+                                        type="button"
+                                        aria-pressed="false"
+                                        data-title="Search engine"
+                                        data-detail="Breadth-first, depth-first, and A* implementations expose the tradeoffs between completeness, memory, and guided search."
+                                    >
+                                        <span>Logic</span><strong>Search engine</strong><small>BFS · DFS · A*</small>
+                                    </button>
+                                    <span class="flow-arrow" aria-hidden="true">→</span>
+                                    <button
+                                        class="architecture-node"
+                                        type="button"
+                                        aria-pressed="false"
+                                        data-title="Visual solution"
+                                        data-detail="The interface turns the computed path into an understandable sequence rather than returning an opaque result."
+                                    >
+                                        <span>Output</span><strong>Visual solution</strong><small>Path · Steps</small>
+                                    </button>
+                                </div>
+                                <aside class="architecture-detail" aria-live="polite">
+                                    <p>Selected component</p>
+                                    <h4>Interactive web UI</h4>
+                                    <div>
+                                        Users choose a board size, arrange tiles, select a search strategy, and follow
+                                        the result step by step.
+                                    </div>
+                                </aside>
+                            </div>
                         </article>
 
-                        <article class="project-card">
-                            <div class="project-topline">
-                                <span>Algorithms</span>
-                                <span aria-hidden="true">↗</span>
+                        <article
+                            class="system-panel"
+                            id="system-vulnerability"
+                            role="tabpanel"
+                            aria-labelledby="tab-vulnerability"
+                            tabindex="0"
+                        >
+                            <div class="system-intro">
+                                <div>
+                                    <p class="system-type">Application security API</p>
+                                    <h3>Package Vulnerability Detector</h3>
+                                </div>
+                                <p>
+                                    A focused backend service that turns package definition files into actionable
+                                    vulnerability information through GitHub’s advisory data.
+                                </p>
+                                <a href="https://github.com/liel-almog/package-vulnerability-detector"
+                                    >View repository <span aria-hidden="true">↗</span></a
+                                >
                             </div>
-                            <h3>
-                                <a href="https://github.com/liel-almog/go-eight-puzzle-solver">
-                                    Go Eight Puzzle Solver
-                                </a>
-                            </h3>
-                            <p>
-                                An interactive Go and TypeScript application that solves configurable sliding puzzles
-                                using breadth-first, depth-first, and A* search.
-                            </p>
-                            <ul class="project-tech" aria-label="Eight Puzzle Solver technologies">
-                                <li>Go</li>
-                                <li>TypeScript</li>
-                                <li>React</li>
-                            </ul>
+                            <div class="architecture-layout">
+                                <div
+                                    class="architecture-flow architecture-flow-short"
+                                    aria-label="Package Vulnerability Detector architecture"
+                                >
+                                    <button
+                                        class="architecture-node"
+                                        type="button"
+                                        aria-pressed="true"
+                                        data-title="Package definition"
+                                        data-detail="The service accepts dependency definitions as the source for a repeatable security check."
+                                    >
+                                        <span>Input</span><strong>Package definition</strong><small>Dependencies</small>
+                                    </button>
+                                    <span class="flow-arrow" aria-hidden="true">→</span>
+                                    <button
+                                        class="architecture-node"
+                                        type="button"
+                                        aria-pressed="false"
+                                        data-title="NestJS API"
+                                        data-detail="A structured TypeScript API parses the input, validates the request, and coordinates advisory lookups."
+                                    >
+                                        <span>Service</span><strong>NestJS API</strong
+                                        ><small>TypeScript · Docker</small>
+                                    </button>
+                                    <span class="flow-arrow" aria-hidden="true">→</span>
+                                    <button
+                                        class="architecture-node"
+                                        type="button"
+                                        aria-pressed="false"
+                                        data-title="Security Advisories"
+                                        data-detail="GitHub’s GraphQL API supplies known vulnerability records for the packages under analysis."
+                                    >
+                                        <span>Integration</span><strong>Security Advisories</strong
+                                        ><small>GitHub · GraphQL</small>
+                                    </button>
+                                    <span class="flow-arrow" aria-hidden="true">→</span>
+                                    <button
+                                        class="architecture-node"
+                                        type="button"
+                                        aria-pressed="false"
+                                        data-title="Actionable result"
+                                        data-detail="The response connects affected dependencies with known advisories so a developer can act on the findings."
+                                    >
+                                        <span>Output</span><strong>Actionable result</strong
+                                        ><small>Vulnerabilities</small>
+                                    </button>
+                                </div>
+                                <aside class="architecture-detail" aria-live="polite">
+                                    <p>Selected component</p>
+                                    <h4>Package definition</h4>
+                                    <div>
+                                        The service accepts dependency definitions as the source for a repeatable
+                                        security check.
+                                    </div>
+                                </aside>
+                            </div>
                         </article>
                     </div>
                 </div>
@@ -350,21 +655,32 @@
             <section class="contact-section" id="contact" aria-labelledby="contact-title">
                 <div class="container contact-inner">
                     <div>
-                        <p class="section-label">Connect</p>
-                        <h2 id="contact-title">Interested in how I think and build?</h2>
-                        <p>Connect with me on LinkedIn or explore my engineering projects on GitHub.</p>
+                        <p class="section-label">Let’s connect</p>
+                        <h2 id="contact-title">Looking for an engineer who takes the whole system seriously?</h2>
+                        <p>
+                            Explore my code or connect with me to talk about backend, platform, and product engineering.
+                        </p>
                     </div>
-                    <div class="contact-actions">
-                        <a
-                            class="button button-contact-secondary"
-                            href="https://www.linkedin.com/in/liel-almog-454158335/"
-                        >
-                            Connect on LinkedIn
-                            <span aria-hidden="true">↗</span>
+                    <div class="social-links social-links-contact" role="group" aria-label="Social profiles">
+                        <a class="social-link" href="https://github.com/liel-almog" aria-label="GitHub profile">
+                            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2.24c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.72 1.27 3.38.97.1-.75.4-1.27.74-1.56-2.57-.29-5.27-1.29-5.27-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.16 1.18A11 11 0 0 1 12 6.13c.98 0 1.95.13 2.87.39 2.2-1.49 3.16-1.18 3.16-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.82 1.19 3.08 0 4.4-2.71 5.38-5.29 5.67.42.36.79 1.06.79 2.14v3.28c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"
+                                />
+                            </svg>
+                            <span class="social-label">GitHub</span>
                         </a>
-                        <a class="button button-light" href="https://github.com/liel-almog">
-                            Visit GitHub
-                            <span aria-hidden="true">↗</span>
+                        <a
+                            class="social-link"
+                            href="https://www.linkedin.com/in/liel-almog-454158335/"
+                            aria-label="LinkedIn profile"
+                        >
+                            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.41a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13Zm1.78 13.04H3.54V8.98H7.1v11.47Z"
+                                />
+                            </svg>
+                            <span class="social-label">LinkedIn</span>
                         </a>
                     </div>
                 </div>
@@ -373,8 +689,14 @@
 
         <footer class="site-footer">
             <div class="container footer-inner">
-                <p>Liel Almog · Senior Software Engineer</p>
-                <p>Built with semantic HTML and CSS.</p>
+                <div class="footer-signature">
+                    <span class="brand-mark" aria-hidden="true">LA</span>
+                    <p>
+                        <strong>Liel Almog</strong>
+                        <span>Senior Software Engineer &amp; Backend Developer</span>
+                    </p>
+                </div>
+                <p class="footer-note">Built with semantic HTML, CSS, and a little JavaScript.</p>
             </div>
         </footer>
     </body>
