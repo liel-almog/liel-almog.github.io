@@ -6,6 +6,10 @@ I design, build, and own reliable software from backend architecture through pro
 
 [View my portfolio](https://liel-almog.github.io/) · [Connect on LinkedIn](https://www.linkedin.com/in/liel-almog-454158335/) · [Explore my GitHub](https://github.com/liel-almog)
 
+## Development
+
+Install the dependencies with `npm install`, then run `npm run dev` to rebuild the Tailwind stylesheet while editing. Run `npm run build` before publishing.
+
 ## What I work on
 
 - Backend services and APIs with clear boundaries and dependable data flows
