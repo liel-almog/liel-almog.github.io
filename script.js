@@ -1,5 +1,32 @@
 document.documentElement.classList.add("js");
 
+const menuToggle = document.querySelector(".menu-toggle");
+const primaryNavigation = document.querySelector("#primary-navigation");
+
+function closeMenu() {
+    if (!menuToggle || !primaryNavigation) return;
+    menuToggle.setAttribute("aria-expanded", "false");
+    primaryNavigation.classList.remove("is-open");
+}
+
+if (menuToggle && primaryNavigation) {
+    menuToggle.addEventListener("click", () => {
+        const willOpen = menuToggle.getAttribute("aria-expanded") !== "true";
+        menuToggle.setAttribute("aria-expanded", String(willOpen));
+        primaryNavigation.classList.toggle("is-open", willOpen);
+    });
+
+    primaryNavigation.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeMenu();
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 900) closeMenu();
+    });
+}
+
 document.querySelectorAll("[data-email-user][data-email-domain]").forEach((link) => {
     const { emailUser, emailDomain } = link.dataset;
     link.href = `mailto:${emailUser}@${emailDomain}`;

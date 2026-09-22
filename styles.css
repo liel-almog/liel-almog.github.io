@@ -114,11 +114,69 @@ h4 {
 }
 
 .header-inner {
+    position: relative;
     display: flex;
     min-height: 4.75rem;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
+}
+
+.menu-toggle {
+    display: none;
+    min-height: 2.7rem;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.55rem 0.72rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 0.65rem;
+    background: rgba(105, 169, 255, 0.08);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 0.76rem;
+    font-weight: 760;
+}
+
+.menu-toggle-icon,
+.menu-toggle-icon::before,
+.menu-toggle-icon::after {
+    display: block;
+    width: 1.05rem;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    content: "";
+    transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.menu-toggle-icon {
+    position: relative;
+}
+
+.menu-toggle-icon::before,
+.menu-toggle-icon::after {
+    position: absolute;
+    left: 0;
+}
+
+.menu-toggle-icon::before {
+    top: -0.32rem;
+}
+
+.menu-toggle-icon::after {
+    top: 0.32rem;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon {
+    background: transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon::before {
+    transform: translateY(0.32rem) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon::after {
+    transform: translateY(-0.32rem) rotate(-45deg);
 }
 
 .brand {
@@ -978,8 +1036,51 @@ nav a[aria-current="true"] {
 }
 
 @media (max-width: 900px) {
-    nav > a {
+    .menu-toggle {
+        display: inline-flex;
+        margin-left: auto;
+    }
+
+    nav {
+        position: absolute;
+        top: calc(100% - 0.45rem);
+        right: 0;
+        left: 0;
         display: none;
+        align-items: stretch;
+        gap: 0;
+        padding: 0.65rem;
+        border: 1px solid var(--border);
+        border-radius: 0.85rem;
+        background: rgba(7, 17, 31, 0.98);
+        box-shadow: var(--shadow);
+    }
+
+    nav.is-open {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    nav > a {
+        padding: 0.75rem 0.8rem;
+        border-radius: 0.55rem;
+    }
+
+    nav > a:hover,
+    nav > a:focus-visible {
+        background: rgba(105, 169, 255, 0.1);
+    }
+
+    nav .social-links {
+        grid-column: 1 / -1;
+        justify-content: stretch;
+        padding-top: 0.35rem;
+        border-top: 1px solid var(--border);
+    }
+
+    nav .social-link {
+        flex: 1;
+        justify-content: center;
     }
 
     .hero-grid,
@@ -1042,37 +1143,36 @@ nav a[aria-current="true"] {
 
 @media (max-width: 700px) {
     .container {
-        width: min(calc(100% - 2rem), var(--container));
-    }
-
-    .site-header {
-        position: static;
+        width: min(100%, var(--container));
+        padding-inline: 1.25rem;
     }
 
     .header-inner {
         min-height: 4.2rem;
     }
 
-    nav {
-        gap: 0;
-    }
-
-    .site-header .social-link {
-        width: 2.5rem;
-        justify-content: center;
-        padding-inline: 0;
-    }
-
-    .site-header .social-label {
-        display: none;
-    }
-
     .hero {
-        padding-top: 4.2rem;
+        padding-top: 3.5rem;
+        padding-bottom: 3.75rem;
     }
 
     .hero h1 {
-        font-size: clamp(2.8rem, 13vw, 4.3rem);
+        margin-bottom: 1.25rem;
+        font-size: clamp(2.6rem, 12vw, 4.1rem);
+    }
+
+    .hero-lead {
+        margin-bottom: 1.6rem;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .section {
+        padding: 4.25rem 0;
+    }
+
+    .section-heading {
+        margin-bottom: 2.5rem;
     }
 
     .capability-line {
@@ -1114,21 +1214,23 @@ nav a[aria-current="true"] {
     }
 
     .project-tabs {
-        grid-template-columns: 1fr;
+        display: flex;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        scroll-snap-type: inline mandatory;
     }
 
     .project-tab {
-        min-height: 4.4rem;
-        border-right: 0;
-        border-bottom: 1px solid var(--border);
-    }
-
-    .project-tab:last-child {
+        min-width: 11.5rem;
+        flex: 1 0 11.5rem;
+        min-height: 4.9rem;
+        border-right: 1px solid var(--border);
         border-bottom: 0;
+        scroll-snap-align: start;
     }
 
     .project-tab[aria-selected="true"] {
-        box-shadow: inset 3px 0 var(--accent);
+        box-shadow: inset 0 -3px var(--accent);
     }
 
     .system-intro {
@@ -1173,6 +1275,72 @@ nav a[aria-current="true"] {
     .footer-note {
         padding-left: 2.8rem;
         text-align: left;
+    }
+
+    .social-links-contact {
+        width: 100%;
+    }
+
+    .social-links-contact .social-link {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding-inline: 1rem;
+    }
+
+    .brand {
+        gap: 0.55rem;
+        font-size: 0.88rem;
+    }
+
+    .brand-mark {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .menu-toggle-label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+    }
+
+    .menu-toggle {
+        padding-inline: 0.75rem;
+    }
+
+    .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .capability-line {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .ownership-card {
+        padding: 1.3rem;
+    }
+
+    .ownership-card-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .system-panel {
+        padding: 1.25rem;
     }
 }
 
