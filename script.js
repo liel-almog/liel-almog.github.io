@@ -1,5 +1,10 @@
 document.documentElement.classList.add("js");
 
+document.querySelectorAll("[data-email-user][data-email-domain]").forEach((link) => {
+    const { emailUser, emailDomain } = link.dataset;
+    link.href = `mailto:${emailUser}@${emailDomain}`;
+});
+
 const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
 const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
 
