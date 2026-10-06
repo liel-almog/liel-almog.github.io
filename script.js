@@ -130,7 +130,7 @@ if ("IntersectionObserver" in window) {
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealElements = document.querySelectorAll(
-    ".hero-copy, .ownership-card, .signal-grid > div, .section-heading, .timeline-item, .expertise-card, .system-explorer",
+    ".hero-copy, .system-map, .signal-grid > div, .section-heading, .timeline-item, .expertise-card, .system-explorer",
 );
 
 if (!prefersReducedMotion && "IntersectionObserver" in window) {
