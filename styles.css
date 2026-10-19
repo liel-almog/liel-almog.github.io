@@ -1985,3 +1985,147 @@ body {
         opacity: 0.4;
     }
 }
+
+/* Intro video and always-visible profile links */
+.header-inner {
+    gap: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+
+#primary-navigation {
+    gap: clamp(0.65rem, 1.4vw, 1.2rem);
+    margin-left: auto;
+}
+
+.header-socials {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex: none;
+}
+
+.header-socials a {
+    display: grid;
+    place-items: center;
+    width: 2.65rem;
+    height: 2.65rem;
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    color: var(--muted);
+    transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease;
+}
+
+.header-socials a:hover {
+    border-color: var(--accent);
+    background: rgba(199, 255, 62, 0.08);
+    color: var(--accent-bright);
+}
+
+.header-socials svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: currentColor;
+}
+
+.intro-video-section {
+    padding: clamp(3.5rem, 7vw, 6rem) 0;
+    border-top: 1px solid var(--border);
+    background: linear-gradient(120deg, #14190e, #0c100a 65%);
+}
+
+.intro-video-layout {
+    display: grid;
+    grid-template-columns: minmax(15rem, 0.55fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 5rem);
+    width: min(calc(100% - 2.5rem), 82rem);
+}
+
+.intro-video-copy h2 {
+    max-width: 12ch;
+    margin: 1.25rem 0;
+    font-size: clamp(2.3rem, 4vw, 4rem);
+}
+
+.intro-video-copy > p:not(.section-label) {
+    max-width: 28rem;
+    color: var(--muted);
+}
+
+.intro-video-copy > a {
+    display: inline-flex;
+    gap: 0.4rem;
+    align-items: center;
+    margin-top: 0.5rem;
+    color: var(--accent-bright);
+    font-size: 0.9rem;
+    font-weight: 740;
+}
+
+.intro-video-copy > a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+}
+
+.intro-video-frame {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 1px solid var(--border-strong);
+    border-radius: 0.4rem;
+    background: #000;
+    box-shadow: var(--shadow);
+}
+
+.intro-video-frame iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@media (max-width: 900px) {
+    #primary-navigation {
+        margin-left: 0;
+    }
+
+    .header-socials {
+        order: 1;
+        margin-left: auto;
+    }
+
+    .menu-toggle {
+        order: 2;
+        margin-left: 0;
+    }
+
+    #primary-navigation {
+        order: 3;
+    }
+
+    .intro-video-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .intro-video-copy h2 {
+        max-width: 18ch;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-inner {
+        gap: 0.5rem;
+    }
+
+    .header-socials {
+        gap: 0.2rem;
+    }
+
+    .header-socials a {
+        width: 2.4rem;
+        height: 2.65rem;
+    }
+
+    .intro-video-layout {
+        width: min(calc(100% - 2rem), 82rem);
+    }
+}
