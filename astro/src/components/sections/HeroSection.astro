@@ -9,11 +9,11 @@ import SystemMap from '../illustrations/SystemMap.astro';
   id="top"
   aria-labelledby="hero-title"
 >
-  <div class="mx-auto grid w-[calc(100%-2.5rem)] max-w-site grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] items-center gap-[clamp(2.5rem,5vw,5rem)] mobile:grid-cols-1">
+  <div class="mx-auto grid w-[calc(100%-2.5rem)] max-w-site grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] items-center gap-[clamp(2.5rem,5vw,5rem)] max-[900px]:grid-cols-1">
     <div>
       <p class="mb-4 text-[0.7rem] font-[750] tracking-[0.08em] text-accent uppercase">{hero.eyebrow}</p>
       <h1
-        class="mt-[1.4rem] mb-6 max-w-[11ch] text-[clamp(3.2rem,8vw,7.2rem)] leading-[0.95] font-[820] tracking-[-0.075em] mobile:max-w-[14ch] max-[381px]:text-[2.8rem]"
+        class="mt-[1.4rem] mb-6 max-w-[11ch] text-[clamp(3.2rem,8vw,7.2rem)] leading-[0.95] font-[820] tracking-[-0.075em] max-[900px]:max-w-[14ch] max-[381px]:text-[2.8rem]"
         id="hero-title"
       >{hero.heading} <span class="text-accent">{hero.emphasis}</span></h1>
       <p class="mb-4 max-w-[39rem] text-[1.05rem] text-muted">{hero.description}</p>

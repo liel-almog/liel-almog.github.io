@@ -6,6 +6,8 @@ export function setupNavigation(header: HTMLElement) {
 
   const setOpen = (open: boolean) => {
     toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    toggle.title = open ? 'Close navigation menu' : 'Open navigation menu';
     navigation.toggleAttribute('data-collapsed', !open);
   };
 

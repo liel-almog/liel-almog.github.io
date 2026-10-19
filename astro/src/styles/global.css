@@ -1,12 +1,2 @@
-@import 'tailwindcss' source('../');
-@import './tokens.css';
-
-/* Keep the existing 900px layout boundary, including the navigation behavior. */
-@custom-variant mobile (@media (max-width: 900px));
-
-@layer base {
-  :focus-visible {
-    outline: 3px solid var(--color-accent-bright);
-    outline-offset: 4px;
-  }
-}
+@import "tailwindcss";
+@import "./tokens.css";

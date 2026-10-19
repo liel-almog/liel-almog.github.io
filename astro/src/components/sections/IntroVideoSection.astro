@@ -10,11 +10,11 @@ const watchUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(introVide
   id="intro-video"
   aria-labelledby="intro-video-title"
 >
-  <div class="mx-auto grid w-[calc(100%-2.5rem)] max-w-site grid-cols-[minmax(15rem,0.55fr)_minmax(0,1fr)] items-center gap-[clamp(2rem,6vw,5rem)] mobile:grid-cols-1 mobile:gap-8">
+  <div class="mx-auto grid w-[calc(100%-2.5rem)] max-w-site grid-cols-[minmax(15rem,0.55fr)_minmax(0,1fr)] items-center gap-[clamp(2rem,6vw,5rem)] max-[900px]:grid-cols-1 max-[900px]:gap-8">
     <div>
       <p class="mb-4 text-[0.7rem] font-[750] tracking-[0.08em] text-accent uppercase">{introVideo.eyebrow}</p>
       <h2
-        class="my-5 max-w-[12ch] text-[clamp(2.3rem,4vw,4rem)] leading-[1.08] font-bold tracking-[-0.035em] mobile:max-w-[18ch]"
+        class="my-5 max-w-[12ch] text-[clamp(2.3rem,4vw,4rem)] leading-[1.08] font-bold tracking-[-0.035em] max-[900px]:max-w-[18ch]"
         id="intro-video-title"
       >{introVideo.heading}</h2>
       <p class="mb-4 max-w-md text-muted">{introVideo.description}</p>

@@ -10,7 +10,7 @@ const isCurrent = experience.end === null;
 const titleId = `${experience.id}-title`;
 ---
 
-<li class="relative pl-10 mobile:pl-7">
+<li class="relative pl-10 max-[900px]:pl-7">
   <span
     class:list={[
       'absolute top-9 left-0.5 z-10 size-3 rounded-full border ring-6 ring-page',
@@ -20,7 +20,7 @@ const titleId = `${experience.id}-title`;
   ></span>
   <article
     class:list={[
-      'overflow-hidden rounded-xl border p-7 mobile:p-5',
+      'overflow-hidden rounded-xl border p-7 max-[900px]:p-5',
       isCurrent
         ? 'border-accent/40 bg-[linear-gradient(135deg,rgba(199,255,62,0.07),transparent_65%)] shadow-panel'
         : 'border-line bg-surface/45',

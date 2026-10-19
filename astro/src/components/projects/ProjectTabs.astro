@@ -4,10 +4,10 @@ import ArchitectureDiagram from './ArchitectureDiagram.astro';
 ---
 
 <div class="overflow-hidden rounded-xl border border-line bg-surface/45 shadow-panel" data-project-tabs>
-  <div class="grid grid-cols-3 border-b border-line mobile:grid-cols-1" data-project-tablist aria-label="Select a project" hidden>
+  <div class="grid grid-cols-3 border-b border-line max-[900px]:grid-cols-1" data-project-tablist aria-label="Select a project" hidden>
     {projects.map((project, index) => (
       <button
-        class="flex min-h-16 cursor-pointer items-center gap-3 border-b-2 border-transparent px-6 py-4 text-left text-sm font-bold text-muted hover:bg-surface-light hover:text-foreground aria-selected:border-accent aria-selected:bg-accent/8 aria-selected:text-accent mobile:min-h-14 mobile:px-5"
+        class="flex min-h-16 cursor-pointer items-center gap-3 border-b-2 border-transparent px-6 py-4 text-left text-sm font-bold text-muted hover:bg-surface-light hover:text-foreground aria-selected:border-accent aria-selected:bg-accent/8 aria-selected:text-accent max-[900px]:min-h-14 max-[900px]:px-5"
         type="button"
         id={`project-tab-${project.id}`}
         data-project-tab
@@ -20,8 +20,8 @@ import ArchitectureDiagram from './ArchitectureDiagram.astro';
   </div>
 
   {projects.map((project) => (
-    <article class="p-8 mobile:p-5" id={`project-panel-${project.id}`} data-project-panel aria-labelledby={`project-title-${project.id}`}>
-      <div class="grid grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-8 mobile:grid-cols-1 mobile:gap-5">
+    <article class="p-8 max-[900px]:p-5" id={`project-panel-${project.id}`} data-project-panel aria-labelledby={`project-title-${project.id}`}>
+      <div class="grid grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-8 max-[900px]:grid-cols-1 max-[900px]:gap-5">
         <div>
           <p class="mb-3 font-mono text-xs leading-6 text-accent">{project.category}</p>
           <h3 class="text-[clamp(1.7rem,3vw,2.5rem)] leading-tight font-bold tracking-[-0.04em]" id={`project-title-${project.id}`}>{project.name}</h3>
@@ -30,7 +30,7 @@ import ArchitectureDiagram from './ArchitectureDiagram.astro';
             {project.linkLabel} <span aria-hidden="true">↗</span>
           </a>
         </div>
-        <div class="border-l border-line pl-8 mobile:border-t mobile:border-l-0 mobile:pt-5 mobile:pl-0">
+        <div class="border-l border-line pl-8 max-[900px]:border-t max-[900px]:border-l-0 max-[900px]:pt-5 max-[900px]:pl-0">
           <p class="mb-3 font-mono text-[0.65rem] tracking-[0.15em] text-subtle uppercase">What drew me in</p>
           <p class="text-sm leading-7 text-muted">{project.motivation}</p>
           <ul class="mt-5 flex flex-wrap gap-2" aria-label={`${project.name} technologies`}>

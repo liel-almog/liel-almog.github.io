@@ -2129,3 +2129,69 @@ body {
         width: min(calc(100% - 2rem), 82rem);
     }
 }
+
+/* Keep the phone and tablet menu anchored to the header and easy to tap. */
+@media (max-width: 900px) {
+    #primary-navigation {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0;
+        left: auto;
+        z-index: 21;
+        display: none;
+        width: min(100%, 28rem);
+        margin-left: 0;
+        padding: 0.65rem;
+        border: 1px solid var(--border);
+        border-radius: 0.3rem;
+        background: #0d100b;
+        box-shadow: var(--shadow);
+        align-items: stretch;
+        gap: 0.25rem;
+    }
+
+    #primary-navigation.is-open {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #primary-navigation > a {
+        min-height: 2.75rem;
+        padding: 0.8rem;
+        border-radius: 0.2rem;
+    }
+
+    #primary-navigation .nav-resume,
+    #primary-navigation .nav-contact {
+        justify-content: flex-start;
+        border: 1px solid var(--border);
+    }
+
+    #primary-navigation .nav-contact {
+        border-color: var(--accent);
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+        flex: none;
+        margin-left: 0;
+        touch-action: manipulation;
+    }
+}
+
+@media (max-width: 480px) {
+    #primary-navigation {
+        right: 0;
+        width: 100%;
+    }
+
+    #primary-navigation > a {
+        min-height: 3rem;
+    }
+
+    .menu-toggle {
+        min-width: 2.75rem;
+        min-height: 2.75rem;
+        justify-content: center;
+    }
+}

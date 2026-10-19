@@ -1,3 +1,5 @@
+FROM NOW ON MAKE CHANGE IN astro/
+
 ## Development
 
 When starting the dev server, use background mode:
