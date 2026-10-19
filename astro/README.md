@@ -2,7 +2,7 @@
 
 This is a new, independent Astro application built alongside the existing portfolio.
 It is an incremental migration: the page shell, metadata, navigation,
-hero, system illustration, intro video, and footer are implemented here. The original site is
+hero, system illustration, intro video, experience timeline, and footer are implemented here. The original site is
 still the production application.
 
 ## Run locally
@@ -35,6 +35,8 @@ src/
     layout/                     Header, footer, social links
     sections/HeroSection.astro  Hero presentation
     sections/IntroVideoSection.astro  Introduction copy and section layout
+    sections/ExperienceSection.astro  Experience introduction and timeline layout
+    experience/ExperienceItem.astro  Reusable role, dates, responsibilities, and stack
     media/YouTubeEmbed.astro     Responsive, lazy-loaded video player
     illustrations/SystemMap.astro  Self-contained SVG diagram
     ui/ButtonLink.astro         Reusable link button
@@ -42,6 +44,7 @@ src/
     site.ts                     Identity, social URLs, navigation destinations
     home.ts                     Hero copy, calls to action, capabilities
     intro-video.ts              Introduction copy and YouTube video ID
+    experience.ts               Typed career history and section copy
   scripts/navigation.ts         Mobile navigation behavior
   styles/
     tokens.css                  Tailwind theme: colors, fonts, sizing, animation
@@ -70,14 +73,12 @@ legacy HTML, stylesheet bundle, or script, and it does not need a browser framew
 
 1. Add `FocusStrip.astro`, moving its copy into data. The intro video is migrated;
    its navigation link now targets the local `#intro-video` section.
-2. Add `ExperienceSection.astro` with a reusable `ExperienceItem.astro` and typed
-   experience data.
-3. Add `ExpertiseSection.astro` with a reusable skill-group component and data.
-4. Add `ProjectsSection.astro`, `ProjectTabs.astro`, `ArchitectureDiagram.astro`,
+2. Add `ExpertiseSection.astro` with a reusable skill-group component and data.
+3. Add `ProjectsSection.astro`, `ProjectTabs.astro`, `ArchitectureDiagram.astro`,
    and project data. Keep tab keyboard handling and diagram selection behavior
    in separate modules owned by those components.
-5. Add `ContactSection.astro`, reusing `SocialLinks.astro`.
-6. Once all sections are verified, switch the deployment build and output
+4. Add `ContactSection.astro`, reusing `SocialLinks.astro`.
+5. Once all sections are verified, switch the deployment build and output
    directory to this app, add production robots/sitemap assets, enable indexing,
    and retire the legacy files in a separate change.
 

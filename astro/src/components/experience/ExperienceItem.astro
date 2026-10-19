@@ -1,0 +1,77 @@
+---
+import type { Experience } from '../../data/experience';
+
+interface Props {
+  experience: Experience;
+}
+
+const { experience } = Astro.props;
+const isCurrent = experience.end === null;
+const titleId = `${experience.id}-title`;
+---
+
+<li class="relative pl-10 mobile:pl-7">
+  <span
+    class:list={[
+      'absolute top-9 left-0.5 z-10 size-3 rounded-full border ring-6 ring-page',
+      isCurrent ? 'border-accent bg-accent' : 'border-line-strong bg-page',
+    ]}
+    aria-hidden="true"
+  ></span>
+  <article
+    class:list={[
+      'overflow-hidden rounded-xl border p-7 mobile:p-5',
+      isCurrent
+        ? 'border-accent/40 bg-[linear-gradient(135deg,rgba(199,255,62,0.07),transparent_65%)] shadow-panel'
+        : 'border-line bg-surface/45',
+    ]}
+    aria-labelledby={titleId}
+  >
+    <div class="mb-5 flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+      <p class="font-mono text-xs leading-relaxed text-muted">
+        <time datetime={experience.start.date}>{experience.start.label}</time>
+        <span class="mx-1 text-subtle" aria-hidden="true">—</span>
+        <span class="sr-only"> to </span>
+        {experience.end ? <time datetime={experience.end.date}>{experience.end.label}</time> : 'Present'}
+      </p>
+      {isCurrent && (
+        <span class="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-3 py-1 text-[0.65rem] font-bold tracking-widest text-accent uppercase">
+          <span class="size-1.5 rounded-full bg-accent" aria-hidden="true"></span>
+          Current role
+        </span>
+      )}
+    </div>
+
+    <h3 class="text-[clamp(1.35rem,2.4vw,1.9rem)] leading-tight font-bold tracking-[-0.035em] text-foreground" id={titleId}>
+      {experience.title}
+    </h3>
+    <p class="mt-2 text-xs font-medium tracking-wide text-accent-bright">{experience.focus}</p>
+    <p class="mt-5 text-sm leading-7 text-muted">{experience.summary}</p>
+
+    <ul class="mt-4 grid gap-2" aria-label="Responsibilities">
+      {experience.highlights.map((highlight) => (
+        <li class="flex items-start gap-3 text-sm leading-6 text-muted">
+          <span class="mt-2.5 size-1 shrink-0 rounded-full bg-accent/70" aria-hidden="true"></span>
+          <span>{highlight}</span>
+        </li>
+      ))}
+    </ul>
+
+    <div class="mt-6 border-t border-line pt-5">
+      <p class="mb-3 font-mono text-[0.6rem] tracking-[0.16em] text-subtle uppercase">Stack & systems</p>
+      <ul class="flex flex-wrap gap-2" aria-label="Technologies and capabilities used">
+        {experience.technologies.map((technology) => (
+          <li class="rounded-md border border-line bg-page/55 px-2.5 py-1 text-xs leading-5 text-muted">{technology}</li>
+        ))}
+      </ul>
+      {experience.services && (
+        <div class="mt-4">
+          <p class="mb-2 font-mono text-[0.6rem] tracking-[0.16em] text-subtle uppercase">Azure services</p>
+          <ul class="flex flex-wrap gap-x-4 gap-y-1 text-xs leading-6 text-muted" aria-label="Microsoft Azure services used">
+            {experience.services.map((service) => <li>{service}</li>)}
+          </ul>
+        </div>
+      )}
+    </div>
+  </article>
+</li>
