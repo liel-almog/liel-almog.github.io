@@ -1,0 +1,137 @@
+---
+import { legacySection, navigation, site } from '../../data/site';
+---
+
+<header data-site-header>
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label={`${site.name}, home`}>
+      <strong>{site.name}</strong><small>Software engineer</small>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" hidden>Menu <span aria-hidden="true">☰</span></button>
+    <nav id="primary-navigation" aria-label="Primary navigation">
+      {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+      <a class="resume" href={site.resume}>Resume <span aria-hidden="true">↗</span></a>
+      <a class="contact" href={legacySection('contact')}>Let’s talk <span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  import { setupNavigation } from '../../scripts/navigation';
+  document.querySelectorAll<HTMLElement>('[data-site-header]').forEach(setupNavigation);
+</script>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    border-bottom: 1px solid var(--border);
+    background: rgb(9 11 8 / 94%);
+    backdrop-filter: blur(18px);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 5.35rem;
+    gap: 2rem;
+  }
+
+  .brand {
+    display: grid;
+    flex-shrink: 0;
+    line-height: 1.3;
+  }
+
+  .brand strong {
+    font-size: 0.95rem;
+  }
+
+  .brand small {
+    color: var(--subtle);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.8rem, 1.5vw, 1.5rem);
+  }
+
+  nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 2.75rem;
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  nav a:hover {
+    color: var(--accent-bright);
+  }
+
+  nav .resume, nav .contact {
+    padding: 0.5rem 0.8rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 0.25rem;
+  }
+
+  nav .contact {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  nav .contact:hover {
+    background: var(--accent-bright);
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    .header-inner {
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding-block: 1rem;
+    }
+
+    nav {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .menu-toggle:not([hidden]) {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      min-height: 2.75rem;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 0.25rem;
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    [data-enhanced] nav {
+      display: none;
+    }
+
+    [data-enhanced] nav.is-open {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      padding-bottom: 0.5rem;
+    }
+
+  }
+</style>

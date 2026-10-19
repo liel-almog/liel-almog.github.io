@@ -3,7 +3,11 @@
     "private": true,
     "scripts": {
         "build": "tailwindcss -i ./tailwind.css -o ./site.css --minify && mkdir -p dist && cp index.html site.css script.js favicon.svg robots.txt sitemap.xml dist/",
-        "dev": "tailwindcss -i ./tailwind.css -o ./site.css --watch"
+        "dev": "tailwindcss -i ./tailwind.css -o ./site.css --watch",
+        "astro:dev": "npm --prefix astro run dev --",
+        "astro:check": "npm --prefix astro run check --",
+        "astro:build": "npm --prefix astro run build --",
+        "astro:preview": "npm --prefix astro run preview --"
     },
     "devDependencies": {
         "@tailwindcss/cli": "^4.3.0",

@@ -1,0 +1,40 @@
+---
+import SeoHead from '../components/seo/SeoHead.astro';
+import SiteHeader from '../components/layout/SiteHeader.astro';
+import SiteFooter from '../components/layout/SiteFooter.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head><SeoHead {...Astro.props} /></head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <SiteHeader />
+    <main id="main-content" tabindex="-1"><slot /></main>
+    <SiteFooter />
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: fixed;
+    inset: 1rem auto auto 1rem;
+    z-index: 100;
+    padding: 0.65rem 0.9rem;
+    transform: translateY(-180%);
+    background: var(--text);
+    color: var(--bg);
+    font-weight: 750;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+</style>
