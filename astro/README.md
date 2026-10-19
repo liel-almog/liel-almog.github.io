@@ -2,7 +2,7 @@
 
 This is a new, independent Astro application built alongside the existing portfolio.
 It is an incremental migration: the page shell, metadata, navigation,
-hero, system illustration, intro video, experience timeline, projects explorer, and footer are implemented here. The original site is
+hero, system illustration, intro video, experience timeline, technical expertise, projects explorer, and footer are implemented here. The original site is
 still the production application.
 
 ## Run locally
@@ -36,8 +36,10 @@ src/
     sections/HeroSection.astro  Hero presentation
     sections/IntroVideoSection.astro  Introduction copy and section layout
     sections/ExperienceSection.astro  Experience introduction and timeline layout
+    sections/ExpertiseSection.astro  Technical expertise introduction and grid
     sections/ProjectsSection.astro  Projects introduction and explorer layout
     experience/ExperienceItem.astro  Reusable role, dates, responsibilities, and stack
+    expertise/SkillGroup.astro   Reusable expertise card and technology list
     projects/ProjectTabs.astro   Accessible project tabs and project presentation
     projects/ArchitectureDiagram.astro  Selectable architecture components
     media/YouTubeEmbed.astro     Responsive, lazy-loaded video player
@@ -48,6 +50,7 @@ src/
     home.ts                     Hero copy, calls to action, capabilities
     intro-video.ts              Introduction copy and YouTube video ID
     experience.ts               Typed career history and section copy
+    expertise.ts                Typed expertise groups and section copy
     projects.ts                 Typed project copy, links, stacks, and architecture
   scripts/navigation.ts         Mobile navigation behavior
   scripts/project-tabs.ts       Responsive tab keyboard navigation
@@ -79,7 +82,8 @@ legacy HTML, stylesheet bundle, or script, and it does not need a browser framew
 
 1. Add `FocusStrip.astro`, moving its copy into data. The intro video is migrated;
    its navigation link now targets the local `#intro-video` section.
-2. Add `ExpertiseSection.astro` with a reusable skill-group component and data.
+2. Technical expertise is migrated with typed data and reusable skill groups;
+   navigation targets the local `#expertise` section.
 3. Projects are migrated: navigation and the hero action target local `#projects`.
    Tabs support arrow keys, Home, and End, with vertical navigation on mobile.
    Architecture component selection is owned by a separate script. Without

@@ -24,6 +24,6 @@ export const legacySection = (id: string) => `${site.url}#${id}`;
 export const navigation = [
   { label: "60-second intro", href: "#intro-video" },
   { label: "Experience", href: "#experience" },
-  { label: "Expertise", href: legacySection("expertise") },
+  { label: "Expertise", href: "#expertise" },
   { label: "Projects", href: "#projects" },
 ] as const;
