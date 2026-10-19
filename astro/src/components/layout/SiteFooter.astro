@@ -3,35 +3,13 @@ import { site } from '../../data/site';
 import SocialLinks from './SocialLinks.astro';
 ---
 
-<footer>
-  <div class="container footer-inner">
-    <p><strong>{site.name}</strong><span>{site.role}</span></p>
+<footer class="border-t border-line py-8">
+  <div class="mx-auto flex w-[calc(100%-2.5rem)] max-w-site flex-wrap items-center justify-between gap-6">
+    <p class="grid">
+      <strong class="font-bold">{site.name}</strong>
+      <span class="text-[0.8rem] text-muted">{site.role}</span>
+    </p>
     <SocialLinks />
-    <small>Built with Astro.</small>
+    <small class="text-[0.8rem] text-muted">Built with Astro.</small>
   </div>
 </footer>
-
-<style>
-  footer {
-    padding-block: 2rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .footer-inner {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-  }
-
-  p {
-    display: grid;
-    margin: 0;
-  }
-
-  p span, small {
-    color: var(--muted);
-    font-size: 0.8rem;
-  }
-</style>

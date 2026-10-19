@@ -2,32 +2,18 @@
 import { site } from '../../data/site';
 ---
 
-<ul aria-label="Social profiles">
+<ul class="flex flex-wrap gap-4" aria-label="Social profiles">
   {site.profiles.map((profile) => (
-    <li><a href={profile.href} target="_blank" rel="noopener noreferrer" aria-label={`${profile.name} profile (opens in a new tab)`}>{profile.name} <span aria-hidden="true">↗</span></a></li>
+    <li>
+      <a
+        class="inline-flex min-h-11 items-center gap-[0.4rem] text-[0.8rem] text-muted hover:text-accent"
+        href={profile.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${profile.name} profile (opens in a new tab)`}
+      >
+        {profile.name} <span aria-hidden="true">↗</span>
+      </a>
+    </li>
   ))}
 </ul>
-
-<style>
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 2.75rem;
-    gap: 0.4rem;
-    font-size: 0.8rem;
-    color: var(--muted);
-  }
-
-  a:hover {
-    color: var(--accent);
-  }
-</style>

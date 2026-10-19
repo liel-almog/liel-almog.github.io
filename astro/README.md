@@ -1,13 +1,13 @@
 # Astro migration
 
 This is a new, independent Astro application built alongside the existing portfolio.
-It is stage one of an incremental migration: the page shell, metadata, navigation,
-hero, system illustration, and footer are implemented here. The original site is
+It is an incremental migration: the page shell, metadata, navigation,
+hero, system illustration, intro video, and footer are implemented here. The original site is
 still the production application.
 
 ## Run locally
 
-Use Node 22.22 or newer. A compatible Node 24 release is selected by `.nvmrc`:
+Use Node 24. The `.nvmrc` files in this directory and the repository root select Node 24.22.0:
 
 ```sh
 cd astro
@@ -34,27 +34,42 @@ src/
     seo/SeoHead.astro            Metadata and structured data
     layout/                     Header, footer, social links
     sections/HeroSection.astro  Hero presentation
+    sections/IntroVideoSection.astro  Introduction copy and section layout
+    media/YouTubeEmbed.astro     Responsive, lazy-loaded video player
     illustrations/SystemMap.astro  Self-contained SVG diagram
     ui/ButtonLink.astro         Reusable link button
   data/
     site.ts                     Identity, social URLs, navigation destinations
     home.ts                     Hero copy, calls to action, capabilities
+    intro-video.ts              Introduction copy and YouTube video ID
   scripts/navigation.ts         Mobile navigation behavior
   styles/
-    tokens.css                  Shared colors and sizing
-    global.css                  Reset, typography, shared container
+    tokens.css                  Tailwind theme: colors, fonts, sizing, animation
+    global.css                  Tailwind import, mobile variant, focus indicator
 public/favicon.svg              Static asset copied without processing
 ```
 
-Component-specific CSS belongs in the component's scoped `<style>` block.
-Only site-wide rules belong in `styles/`. Browser behavior is imported by the
-component that owns it. Content lives in typed data modules rather than being
-duplicated throughout templates. This app does not import the legacy HTML,
-stylesheet bundle, or script, and it does not need Tailwind or a browser framework.
+Use Tailwind utilities directly in Astro components for layout, typography,
+responsive behavior, interaction states, and SVG styling. Tailwind 4 is compiled
+through `@tailwindcss/vite`; the app does not load a browser/CDN version. The
+shared theme in `styles/tokens.css` provides utilities such as `bg-page`,
+`text-accent`, `border-line`, `max-w-site`, and `shadow-panel`. The `mobile:`
+variant applies at widths up to 900px, matching the navigation script.
+
+Keep custom CSS limited to shared foundations or effects that need it (currently
+the keyboard focus indicator and diagram animation keyframes). Prefer reusable
+Astro components to repeated groups of utilities. Use complete utility strings
+for variants so Tailwind can discover them at build time.
+
+Browser behavior is imported by the component that owns it and uses data
+attributes independently of styling classes. Content lives in typed data modules
+rather than being duplicated throughout templates. This app does not import the
+legacy HTML, stylesheet bundle, or script, and it does not need a browser framework.
 
 ## Next migration stages
 
-1. Add `IntroVideoSection.astro` and `FocusStrip.astro`, moving their copy into data.
+1. Add `FocusStrip.astro`, moving its copy into data. The intro video is migrated;
+   its navigation link now targets the local `#intro-video` section.
 2. Add `ExperienceSection.astro` with a reusable `ExperienceItem.astro` and typed
    experience data.
 3. Add `ExpertiseSection.astro` with a reusable skill-group component and data.

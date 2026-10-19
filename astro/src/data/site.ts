@@ -22,7 +22,7 @@ export const site = {
 export const legacySection = (id: string) => `${site.url}#${id}`;
 
 export const navigation = [
-  { label: "60-second intro", href: legacySection("intro-video") },
+  { label: "60-second intro", href: "#intro-video" },
   { label: "Experience", href: legacySection("experience") },
   { label: "Expertise", href: legacySection("expertise") },
   { label: "Projects", href: legacySection("projects") },
