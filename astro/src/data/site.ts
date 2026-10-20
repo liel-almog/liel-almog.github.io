@@ -9,6 +9,7 @@ export const site = {
   url: "https://lielalmog.com/",
   resume:
     "https://drive.google.com/drive/folders/15Nr72FC4d_oyjNiCR-VU9ReDNCHlDwbJ",
+  email: "train-fit-frantic@duck.com",
   profiles: [
     { name: "GitHub", href: "https://github.com/liel-almog" },
     {
@@ -26,4 +27,5 @@ export const navigation = [
   { label: "Experience", href: "#experience" },
   { label: "Expertise", href: "#expertise" },
   { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
 ] as const;
