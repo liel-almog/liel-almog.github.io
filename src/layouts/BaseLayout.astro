@@ -24,5 +24,14 @@ interface Props {
     <SiteHeader />
     <main id="main-content" tabindex="-1"><slot /></main>
     <SiteFooter />
+    <div class="reading-progress" aria-hidden="true"></div>
+    <button class="motion-toggle" type="button" aria-pressed="false" hidden>
+      <span class="motion-indicator" aria-hidden="true"></span>
+      <span data-motion-label>Pause motion</span>
+    </button>
+    <script>
+      import { setupMotion } from '../scripts/motion';
+      setupMotion();
+    </script>
   </body>
 </html>
