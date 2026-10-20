@@ -1,0 +1,66 @@
+---
+const nodes = [
+  { x: 52, radius: 30, title: '01', label: 'NEED' },
+  { x: 218, radius: 43, title: 'CORE', label: 'DESIGN + BUILD' },
+  { x: 356, radius: 30, title: 'SHIP', label: 'CLOUD' },
+  { x: 508, radius: 30, title: 'RUN', label: 'OPERATE' },
+];
+const track = 'M82 190H175M261 190H326M386 190H478M218 147V80H358V160M356 220V305H218V233';
+---
+
+<aside
+  data-system-map
+  class="min-w-0 border border-line bg-surface bg-[linear-gradient(rgb(199_255_62/3.5%)_1px,transparent_1px),linear-gradient(90deg,rgb(199_255_62/3.5%)_1px,transparent_1px)] bg-size-[28px_28px] p-[clamp(1.2rem,2.5vw,2rem)] shadow-panel"
+  aria-labelledby="system-map-title"
+>
+  <div class="flex flex-wrap items-center justify-between gap-2 text-[0.65rem]">
+    <p class="font-[750] tracking-widest text-accent uppercase">How I work</p>
+    <span class="text-muted">Built for production</span>
+  </div>
+  <h2
+    class="mt-4 max-w-[16ch] text-[clamp(1.55rem,2.5vw,2.3rem)] leading-[1.08] font-bold tracking-[-0.035em]"
+    id="system-map-title"
+  >From first constraint to <span class="text-accent">running system.</span></h2>
+  <svg
+    class="block h-auto w-full font-mono text-[11px] font-bold [text-anchor:middle]"
+    viewBox="0 0 560 390"
+    role="img"
+    aria-labelledby="map-title map-description"
+  >
+    <title id="map-title">A system built from connected parts</title>
+    <desc id="map-description">Product needs flow through design and services into cloud delivery, data, and continuous operation.</desc>
+    <g class="map-orbit" aria-hidden="true">
+      <circle cx="218" cy="190" r="62" fill="none" stroke="currentColor" stroke-dasharray="45 18 4 18" />
+      <circle cx="218" cy="190" r="73" fill="none" stroke="currentColor" stroke-dasharray="2 14" />
+    </g>
+    <path class="fill-none stroke-line-strong stroke-[1.5] [stroke-linecap:round] [stroke-linejoin:round]" d={track} />
+    <path class="animate-map-flow fill-none stroke-accent stroke-2 [stroke-dasharray:7_14] [stroke-linecap:round] [stroke-linejoin:round] motion-reduce:animate-none" d={track} />
+    {nodes.map((node) => (
+      <g class="map-node" style={`--node-delay: ${nodes.indexOf(node) * 0.35}s`}>
+        <circle
+          class:list={[
+            node.title === 'CORE'
+              ? 'fill-[#2a3916] stroke-accent stroke-2'
+              : 'fill-surface stroke-line-strong stroke-[1.5]',
+          ]}
+          cx={node.x}
+          cy="190"
+          r={node.radius}
+        />
+        <text class="fill-accent-bright" x={node.x} y="194">{node.title}</text>
+        <text class="fill-muted text-[9px] tracking-[0.08em]" x={node.x} y={node.title === 'CORE' ? 255 : 242}>{node.label}</text>
+      </g>
+    ))}
+    <g>
+      <circle class="fill-surface stroke-line-strong stroke-[1.5]" cx="358" cy="80" r="23" />
+      <text class="fill-accent-bright text-[9px]" x="358" y="84">DATA</text>
+    </g>
+    <g>
+      <circle class="fill-surface stroke-line-strong stroke-[1.5]" cx="218" cy="305" r="23" />
+      <text class="fill-accent-bright text-[9px]" x="218" y="309">APIs</text>
+    </g>
+  </svg>
+  <p class="flex flex-wrap gap-2 font-mono text-[0.65rem] leading-normal font-[650] text-muted uppercase">
+    Architecture <span class="text-accent">→</span> delivery <span class="text-accent">→</span> operation
+  </p>
+</aside>

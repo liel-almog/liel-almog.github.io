@@ -1,0 +1,19 @@
+---
+import { site } from '../../data/site';
+---
+
+<ul class="flex flex-wrap gap-4" aria-label="Social profiles">
+  {site.profiles.map((profile) => (
+    <li>
+      <a
+        class="inline-flex min-h-11 items-center gap-[0.4rem] text-[0.8rem] text-muted hover:text-accent"
+        href={profile.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${profile.name} profile (opens in a new tab)`}
+      >
+        {profile.name} <span aria-hidden="true">↗</span>
+      </a>
+    </li>
+  ))}
+</ul>

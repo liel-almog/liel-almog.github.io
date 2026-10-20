@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import "tailwindcss";
+@import "./tokens.css";
+
+.reading-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3px;
+  z-index: 110;
+  background: var(--color-accent);
+  transform: scaleX(var(--progress, 0));
+  transform-origin: left;
+  pointer-events: none;
+}
+
+.motion-toggle {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 999px;
+  background: var(--color-page);
+  color: var(--color-muted);
+  font: 600 0.7rem var(--font-sans);
+  cursor: pointer;
+}
+
+.motion-toggle[hidden] { display: none; }
+.motion-toggle:hover { color: var(--color-accent); }
+.motion-indicator { width: 6px; height: 6px; border-radius: 50%; background: var(--color-accent); }
+.motion-paused .motion-indicator { background: var(--color-subtle); }
+.hero-word { display: inline-block; }
+.map-orbit { color: var(--color-accent); opacity: 0.45; transform-origin: 218px 190px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-pending { opacity: 0; transform: translateY(14px); }
+  .reveal-pending:focus-within { opacity: 1; transform: none; }
+  #top { position: relative; isolation: isolate; overflow: clip; }
+  #top::before {
+    content: '';
+    position: absolute;
+    inset: -25%;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 70% 45%, rgb(199 255 62 / 8%), transparent 45%);
+    animation: ambient-drift 12s ease-in-out infinite alternate;
+  }
+
+  .hero-word {
+    animation: word-arrive 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--word-index) * 110ms + 100ms);
+  }
+  .hero-emphasis {
+    background: linear-gradient(110deg, var(--color-accent) 25%, #f6ffe0 45%, var(--color-accent) 65%);
+    background-size: 250% 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation-name: word-arrive, title-shimmer;
+    animation-duration: 1.1s, 7s;
+    animation-iteration-count: 1, infinite;
+  }
+  #top > div > div > :not(h1) { animation: content-arrive 1s 450ms both; }
+
+  [data-system-map] {
+    position: relative;
+    transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+    transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 400ms;
+    animation: map-arrive 1.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  [data-system-map]:hover { border-color: var(--color-line-strong); }
+  .map-orbit { animation: orbit-spin 22s linear infinite; }
+  .map-node > circle {
+    animation: node-pulse 4s ease-in-out infinite;
+    animation-delay: var(--node-delay);
+  }
+  .map-node:nth-of-type(3) > circle { animation-name: core-pulse; }
+  a.inline-flex {
+    position: relative;
+    transition: translate 250ms, box-shadow 250ms, background-color 250ms;
+  }
+  a.inline-flex:hover { translate: 0 -3px; }
+  a.inline-flex > span[aria-hidden] { transition: transform 250ms; }
+  a.inline-flex:hover > span[aria-hidden] { transform: translate(3px, -3px); }
+  #expertise article, #experience article {
+    transition: border-color 300ms, box-shadow 300ms;
+  }
+  #expertise article:hover, #experience article:hover {
+    border-color: var(--color-line-strong);
+    box-shadow: inset 0 1px 0 rgb(199 255 62 / 20%), 0 15px 40px rgb(0 0 0 / 15%);
+  }
+  [data-project-panel]:not([hidden]) { animation: content-arrive 550ms both; }
+  .motion-indicator { animation: status-pulse 2.5s ease-in-out infinite; }
+}
+
+@keyframes word-arrive {
+  from { opacity: 0; transform: translateY(65px) rotate(5deg); filter: blur(8px); }
+  to { opacity: 1; transform: none; filter: blur(0); }
+}
+@keyframes content-arrive {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes map-arrive {
+  from { opacity: 0; translate: 45px 25px; scale: 0.92; }
+  to { opacity: 1; translate: 0 0; scale: 1; }
+}
+@keyframes ambient-drift { to { transform: translate(-8%, 6%) scale(1.15); } }
+@keyframes title-shimmer { from { background-position: 100% 0; } to { background-position: -150% 0; } }
+@keyframes orbit-spin { to { transform: rotate(360deg); } }
+@keyframes node-pulse { 50% { stroke: var(--color-accent); } }
+@keyframes core-pulse { 50% { fill: #3b511a; stroke: var(--color-accent-bright); } }
+@keyframes status-pulse { 50% { box-shadow: 0 0 0 4px rgb(199 255 62 / 12%); } }
+
+/* A live toggle also cancels entrance effects, so content is immediately readable. */
+.motion-paused *, .motion-paused *::before, .motion-paused *::after {
+  animation: none !important;
+  transition: none !important;
+}
+.motion-paused { scroll-behavior: auto; }
+.motion-paused a.inline-flex:hover { translate: none; }
+.motion-paused a.inline-flex:hover > span[aria-hidden] { transform: none; }

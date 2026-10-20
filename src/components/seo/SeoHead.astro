@@ -1,0 +1,41 @@
+---
+import { site } from '../../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const { title = site.title, description = site.description, noindex = true } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  url: site.url,
+  sameAs: site.profiles.map((profile) => profile.href),
+  jobTitle: ['Senior Software Engineer', 'Backend Developer'],
+  homeLocation: { '@type': 'Country', name: 'Israel' },
+};
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="author" content={site.name} />
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
+<meta name="theme-color" content="#090b08" />
+<link rel="canonical" href={canonical} />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+{site.profiles.map((profile) => <link rel="me" href={profile.href} />)}
+<meta property="og:type" content="profile" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={site.socialDescription} />
+<meta property="og:url" content={canonical} />
+<meta property="og:site_name" content={site.name} />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={site.socialDescription} />
+<script type="application/ld+json" set:html={JSON.stringify(person).replace(/</g, '\\u003c')} />

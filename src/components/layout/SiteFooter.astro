@@ -1,0 +1,15 @@
+---
+import { site } from '../../data/site';
+import SocialLinks from './SocialLinks.astro';
+---
+
+<footer class="border-t border-line py-8">
+  <div class="mx-auto flex w-[calc(100%-2.5rem)] max-w-site flex-wrap items-center justify-between gap-6">
+    <p class="grid">
+      <strong class="font-bold">{site.name}</strong>
+      <span class="text-[0.8rem] text-muted">{site.role}</span>
+    </p>
+    <SocialLinks />
+    <small class="text-[0.8rem] text-muted">Built with Astro.</small>
+  </div>
+</footer>

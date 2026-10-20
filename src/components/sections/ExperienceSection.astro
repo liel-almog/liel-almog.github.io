@@ -1,0 +1,32 @@
+---
+import { experiences, experienceSection } from '../../data/experience';
+import { site } from '../../data/site';
+import ExperienceItem from '../experience/ExperienceItem.astro';
+import ButtonLink from '../ui/ButtonLink.astro';
+---
+
+<section class="border-t border-line bg-page py-[clamp(4rem,8vw,7rem)]" id="experience" aria-labelledby="experience-title">
+  <div class="mx-auto grid w-[calc(100%-2.5rem)] max-w-site grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] items-start gap-[clamp(3rem,6vw,6rem)] max-[900px]:grid-cols-1 max-[900px]:gap-10">
+    <div class="sticky top-32 max-[900px]:static">
+      <p class="mb-5 flex items-center gap-3 text-[0.7rem] font-[750] tracking-[0.08em] text-accent uppercase">
+        <span class="h-px w-8 bg-accent" aria-hidden="true"></span>
+        {experienceSection.eyebrow}
+      </p>
+      <h2 class="max-w-[13ch] text-[clamp(2.5rem,4.5vw,4.5rem)] leading-[1.05] font-bold tracking-[-0.055em]" id="experience-title">
+        {experienceSection.heading}
+        <span class="block text-accent">{experienceSection.emphasis}</span>
+      </h2>
+      <p class="mt-6 max-w-sm text-sm leading-7 text-muted">{experienceSection.description}</p>
+      <div class="mt-8">
+        <ButtonLink href={site.resume} arrow="↗">{experienceSection.resumeLabel}</ButtonLink>
+      </div>
+    </div>
+
+    <ol
+      class="relative grid gap-6 before:absolute before:top-9 before:bottom-9 before:left-2 before:w-px before:bg-line"
+      aria-label="Career timeline, most recent first"
+    >
+      {experiences.map((experience) => <ExperienceItem experience={experience} />)}
+    </ol>
+  </div>
+</section>

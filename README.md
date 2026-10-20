@@ -10,6 +10,12 @@ I design, build, and own reliable software from backend architecture through pro
 
 Install the dependencies with `npm install`, then run `npm run dev` to rebuild the Tailwind stylesheet while editing. Run `npm run build` before publishing.
 
+An independent Astro application is being built incrementally in [`astro/`](astro/README.md).
+It currently includes the shared layout, navigation, hero, intro video, experience timeline, technical expertise, projects explorer, and footer. To work on
+it, use Node 24 and run `cd astro`, `nvm use`, `npm ci`, and `npm run dev`.
+The existing root build remains the production site during migration. See the
+[migration guide](astro/README.md) for component boundaries and the next stages.
+
 ## What I work on
 
 - Backend services and APIs with clear boundaries and dependable data flows

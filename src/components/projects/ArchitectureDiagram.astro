@@ -1,0 +1,46 @@
+---
+import type { Project } from '../../data/projects';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const firstStep = project.architecture[0];
+---
+
+<div class="mt-8 border-t border-line pt-6" data-architecture>
+  <p class="mb-4 font-mono text-[0.65rem] tracking-[0.15em] text-subtle uppercase">Inside the system</p>
+  <div class="grid grid-cols-[minmax(0,2fr)_minmax(15rem,1fr)] items-start gap-6 max-[900px]:grid-cols-1">
+    <ol class="grid gap-3 sm:grid-cols-2" aria-label={`${project.name} architecture`}>
+      {project.architecture.map((step, index) => (
+        <li>
+          <button
+            class="h-full min-h-28 w-full rounded-lg border border-line bg-page/55 p-4 text-left enabled:cursor-pointer enabled:hover:border-line-strong aria-pressed:border-accent aria-pressed:bg-accent/8"
+            type="button"
+            data-architecture-node
+            data-title={step.title}
+            data-detail={step.description}
+            aria-controls={`architecture-detail-${project.id}`}
+            disabled
+          >
+            <span class="mb-2 block font-mono text-[0.6rem] tracking-widest text-subtle uppercase">{String(index + 1).padStart(2, '0')} / {step.layer}</span>
+            <strong class="block text-sm text-foreground">{step.title}</strong>
+            <span class="mt-1 block text-xs text-accent">{step.stack}</span>
+          </button>
+          <p class="mt-2 text-sm leading-7 text-muted" data-architecture-fallback>{step.description}</p>
+        </li>
+      ))}
+    </ol>
+    <aside class="rounded-lg border border-accent/25 bg-accent/5 p-5" id={`architecture-detail-${project.id}`} data-architecture-detail aria-live="polite" aria-atomic="true" hidden>
+      <p class="mb-3 font-mono text-[0.6rem] tracking-widest text-subtle uppercase">Selected component</p>
+      <h4 class="text-lg font-bold text-accent" data-detail-title>{firstStep.title}</h4>
+      <p class="mt-3 text-sm leading-7 text-muted" data-detail-copy>{firstStep.description}</p>
+    </aside>
+  </div>
+</div>
+
+<script>
+  import { setupArchitectureDiagram } from '../../scripts/architecture-diagram';
+  document.querySelectorAll<HTMLElement>('[data-architecture]').forEach(setupArchitectureDiagram);
+</script>

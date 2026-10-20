@@ -1,0 +1,33 @@
+---
+import type { SkillGroup } from '../../data/expertise';
+
+interface Props {
+  group: SkillGroup;
+  wide?: boolean;
+}
+
+const { group, wide = false } = Astro.props;
+const titleId = `expertise-${group.id}-title`;
+---
+
+<article
+  class:list={[
+    'col-span-1 min-w-0 border-r border-b border-line p-[clamp(1.5rem,3vw,2.1rem)]',
+    wide ? 'min-[901px]:col-span-3' : 'min-[901px]:col-span-2',
+    group.highlighted
+      ? 'bg-[linear-gradient(145deg,rgba(199,255,62,0.08),rgba(21,25,16,0.3))]'
+      : 'bg-surface/30',
+  ]}
+  aria-labelledby={titleId}
+>
+  <p class="font-mono text-[0.68rem] text-accent">{group.label}</p>
+  <h3 class="mt-12 mb-3 text-[1.32rem] leading-tight font-bold tracking-[-0.025em]" id={titleId}>
+    {group.title}
+  </h3>
+  <p class="max-w-lg text-sm leading-7 text-muted">{group.description}</p>
+  <ul class="mt-5 flex flex-wrap gap-2" aria-label={`${group.title} technologies and capabilities`}>
+    {group.technologies.map((technology) => (
+      <li class="rounded-full border border-line px-2.5 py-1 text-xs leading-5 font-medium text-muted">{technology}</li>
+    ))}
+  </ul>
+</article>

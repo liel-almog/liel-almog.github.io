@@ -1,0 +1,33 @@
+---
+import { hero } from '../../data/home';
+import ButtonLink from '../ui/ButtonLink.astro';
+import SystemMap from '../illustrations/SystemMap.astro';
+---
+
+<section
+  class="grid min-h-[min(52rem,calc(100svh-5.35rem))] items-center py-[clamp(3rem,7vw,6rem)]"
+  id="top"
+  aria-labelledby="hero-title"
+>
+  <div class="mx-auto grid w-[calc(100%-2.5rem)] max-w-site grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] items-center gap-[clamp(2.5rem,5vw,5rem)] max-[900px]:grid-cols-1">
+    <div>
+      <p class="mb-4 text-[0.7rem] font-[750] tracking-[0.08em] text-accent uppercase">{hero.eyebrow}</p>
+      <h1
+        class="font-display mt-[1.4rem] mb-6 max-w-[11ch] text-[clamp(3.2rem,8vw,7.2rem)] leading-[0.9] font-[820] tracking-[-0.075em] max-[900px]:max-w-[14ch] max-[381px]:text-[2.8rem]"
+        id="hero-title"
+      >{hero.heading.split(' ').map((word, index) => <Fragment><span class="hero-word" style={`--word-index: ${index}`}>{word}</span>{' '}</Fragment>)}<span class="hero-word hero-emphasis text-accent leading-none" style={`--word-index: ${hero.heading.split(' ').length}`}>{hero.emphasis}</span></h1>
+      <p class="mb-4 max-w-[39rem] text-[1.05rem] text-muted">{hero.description}</p>
+      <div class="my-7 flex flex-wrap gap-3">
+        {hero.actions.map((action) => (
+          <ButtonLink href={action.href} variant={action.variant} arrow={action.arrow}>{action.label}</ButtonLink>
+        ))}
+      </div>
+      <ul class="flex flex-wrap gap-x-5 gap-y-[0.65rem] text-xs text-muted" aria-label="Core capabilities">
+        {hero.capabilities.map((capability) => (
+          <li class="before:mr-[0.4rem] before:text-accent before:content-['↗']">{capability}</li>
+        ))}
+      </ul>
+    </div>
+    <SystemMap />
+  </div>
+</section>

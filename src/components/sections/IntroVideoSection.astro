@@ -1,0 +1,32 @@
+---
+import { introVideo } from '../../data/intro-video';
+import YouTubeEmbed from '../media/YouTubeEmbed.astro';
+
+const watchUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(introVideo.videoId)}`;
+---
+
+<section
+  class="border-t border-line bg-[linear-gradient(120deg,#14190e,#0c100a_65%)] py-[clamp(3.5rem,7vw,6rem)]"
+  id="intro-video"
+  aria-labelledby="intro-video-title"
+>
+  <div class="mx-auto grid w-[calc(100%-2.5rem)] max-w-site grid-cols-[minmax(15rem,0.55fr)_minmax(0,1fr)] items-center gap-[clamp(2rem,6vw,5rem)] max-[900px]:grid-cols-1 max-[900px]:gap-8">
+    <div>
+      <p class="mb-4 text-[0.7rem] font-[750] tracking-[0.08em] text-accent uppercase">{introVideo.eyebrow}</p>
+      <h2
+        class="my-5 max-w-[12ch] text-[clamp(2.3rem,4vw,4rem)] leading-[1.08] font-bold tracking-[-0.035em] max-[900px]:max-w-[18ch]"
+        id="intro-video-title"
+      >{introVideo.heading}</h2>
+      <p class="mb-4 max-w-md text-muted">{introVideo.description}</p>
+      <a
+        class="inline-flex min-h-11 items-center gap-[0.4rem] text-[0.9rem] font-[740] text-accent-bright underline-offset-4 hover:underline"
+        href={watchUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {introVideo.watchLabel} <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+    <YouTubeEmbed videoId={introVideo.videoId} title={introVideo.videoTitle} />
+  </div>
+</section>
